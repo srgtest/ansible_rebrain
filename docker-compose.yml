@@ -1,0 +1,9 @@
+version: '3.7'
+
+services:
+  ans_master:
+    build: 
+      context: ./server
+      dockerfile: Dockerfile
+    volumes:
+      - ./config/ansible:/etc/ansible:rw
