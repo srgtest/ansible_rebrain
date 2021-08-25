@@ -1,0 +1,15 @@
+---
+- name: Установка Nginx Web Server
+  hosts: WEB
+  become: yes 
+
+  tasks:
+  - name: Обновление пакетов
+    apt:
+      update_cache: yes 
+
+  - name: Установка Nginx
+    apt: name=nginx state=latest
+
+  - name: Запуск Nginx и добавление в автозагрузку
+    service: name=nginx state=started enabled=yes
